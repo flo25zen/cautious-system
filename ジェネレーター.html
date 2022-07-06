@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="カスタム.css">
+    <script src="文字変換.js" charset="utf-8"></script>
+    <title>濁点ジェネレーター</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+     let kigou = "off";
+     let star = "off";
+     let daku = "off";
+    </script>
+
+<h1 class="ay">間に文字を入れるジェネレーター</h1>
+<div class="ay">制作者　俺</div>
+    <br>
+    <textarea id="befor" placeholder="原文" rows="11" cols="80">りんごジュースのうた！</textarea>
+    <br>
+    <textarea id="moto" placeholder="付け足したい文字" name="name" rows="2" cols="80">☆</textarea>
+    <br>
+    <button id="chg" type="button" name="button" onclick="changestr()">変換</button>
+    <button id="off2" type="button" name="button" onclick="changemode()">記号にもつける:
+      <span id="off">オフ</span>
+    </button>
+    <button id="dakuoff2" type="button" name="button" onclick="changedaku()">濁音にもつける:
+      <span id="dakuoff">オフ</span>
+    </button>
+    <button id="hosioff2" type="button" name="button" onclick="changehosi()">最後はつけない:
+      <span id="hosioff">オフ</span>
+    </button>
+    <br>
+    <textarea id="after" readonly="readonly" rows="11" cols="80"></textarea>
+    <br>
+    <button id="tobu2" onclick="test()">ツイートする！</button>
+  </body>
+</html>
