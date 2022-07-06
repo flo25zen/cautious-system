@@ -1,0 +1,93 @@
+#on2{
+  background-color: rgb(50,50,50);
+  color: white;
+}
+
+#on{
+  color: white;
+}
+
+#off{
+    color: black;
+}
+
+#off2{
+  border-color: white;
+  background: white;
+  color: black;
+}
+
+#chg{
+  background-color: rgb(181,251,251);
+  color: rgb(41,146,255);
+  border-color: rgb(181,251,251);
+}
+
+#dakuon2{
+  background-color: rgb(50,50,50);
+  color: white;
+}
+
+#dakuon{
+  color: white;
+}
+
+#dakuoff{
+    color: black;
+}
+
+#dakuoff2{
+  border-color: white;
+  background: white;
+  color: black;
+}
+
+#after{
+  margin-top: 8px;
+}
+
+#hosion2{
+  background-color: rgb(50,50,50);
+  color: white;
+}
+
+#hosion{
+  color: white;
+}
+
+#hosioff{
+    color: black;
+}
+
+#hosioff2{
+  border-color: white;
+  background: white;
+  color: black;
+}
+
+h1{
+  color: green;
+}
+
+.ay{
+  display: inline-block;
+}
+
+#tobu2{
+  background-color: rgb(103, 172, 236);
+  color: white;
+  border-color: rgb(103, 172, 236);
+  box-shadow: 5px 5px 2px rgb(15, 64, 110);
+  transition: all 0.5s ease;
+ 
+  height: 25px;
+  width: 120px;
+}
+
+#tobu2:hover{
+ 
+  height: 35px;
+  width: 150px;
+  background-color: rgb(158, 207, 253);
+
+}
