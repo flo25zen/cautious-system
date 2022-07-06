@@ -15,6 +15,6 @@ function getRandomInt(min, max) {
 
 var test = function(){
     var rinku = encodeURI((document.getElementById("zayu1").textContent)+( document.getElementById("zayu2").textContent)+( document.getElementById("zayu3").textContent));
-     var toburi = "https://twitter.com/intent/tweet?text=" + rinku+"%0A"+encodeURI("https://flo25zen.github.io/dakuten/");
+     var toburi = "https://twitter.com/intent/tweet?text=" + rinku+"%0A"+encodeURI("https://flo25zen.github.io/dakuten/%E5%BA%A7%E5%8F%B3%E3%81%AE%E9%8A%98%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC.html");
 
 window.open(toburi,"")};
