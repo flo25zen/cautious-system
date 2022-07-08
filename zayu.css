@@ -1,5 +1,5 @@
 #top{
-    font-size: 50px;
+    font-size: 30px;
     color: goldenrod;
     text-align: center;
     text-shadow: 10px;
@@ -85,5 +85,5 @@ a{
  #hyou{
     margin-left: auto;
     margin-right: auto;
-    width: 600px;
+    box-sizing: 10px,10px;
   }
