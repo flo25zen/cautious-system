@@ -6,6 +6,8 @@ var toburi
 var kuuhaku
 let test
 
+// change 1 オンとオフの入れ替え
+
 function changestr(){
 let aida = document.getElementById('moto').value;
 let aftst = '';
@@ -66,7 +68,7 @@ test = function(){
 function changemode(){
   if (kigou === "on") {
       kigou = "off";
-      document.getElementById('on').innerHTML = "オフ";
+      document.getElementById('on').innerHTML = "オン";
       document.getElementById('on').id = "off";
       document.getElementById('on2').id = "off2";
   }else if (kigou === "off") {

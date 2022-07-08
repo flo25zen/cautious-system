@@ -4,6 +4,7 @@
     text-align: center;
     text-shadow: 10px;
     text-shadow: gold 5px 3px;
+    width: 100%;
     
 }
 
@@ -79,4 +80,10 @@ a{
   button.btn--shadow {
     -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  }
+
+  table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
   }
