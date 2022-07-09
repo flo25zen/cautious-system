@@ -9,11 +9,13 @@
 }
 
 #btn{
-    text-align: center;
+  text-align: center;
+   width: 10;
 }
 
-#set{
-    padding: 10px 20px;
+.btn{
+  height: 50px;
+  width: 240px;
 }
 
 #za{
