@@ -45,7 +45,7 @@ a{
     display: block;
 }
 
-#tobu2{
+.tobu2{
     display: block;
     margin:0 auto;
     background-color: rgb(103, 172, 236);
@@ -58,7 +58,7 @@ a{
     width: 120px;
   }
   
-  #tobu2:hover{
+.tobu2:hover{
    
     height: 35px;
     width: 150px;
@@ -82,8 +82,8 @@ a{
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   }
 
- #hyou{
+  table{
     margin-left: auto;
     margin-right: auto;
-    box-sizing: 10px,10px;
+   box-sizing: 10px 10px;
   }
