@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="opt">a</div>
+    <button id="spd_up" onclick="speed(100)">遅くする</button>
+    <button id="spd_down" onclick="speed(-100)">早くする</button>
+</body>
+
+<script>
+var table = '';
+var array = [];
+var after = [];
+var spd = 500;
+var s = prompt('方眼紙サイズ',10);
+function speed(value){
+ if(!(spd == 100 && value <0)){spd += value;}
+};
+
+for(var i=0; i<s; i++){
+  array[i] = [];
+  after[i] = [];
+  for(var j=0; j<s; j++){
+    array[i][j] = '';
+    after[i][j] = '';
+  }
+}
+
+var def = '';
+for(var i=0; i<s; i++){
+    for(var j=0; j<s; j++){
+    def = def + '□';
+    } def = def + '<br>'
+} 
+
+    var offset = prompt('初期セット',def);
+    offset = offset.replace(/<br>/g,'');
+for(var i=0; i<s; i++){
+    for(var j=0; j<s; j++){   
+       array[i][j] = offset.charAt(j+s*i);
+       after[i][j] = offset.charAt(j+s*i);
+        }
+        
+    };
+
+
+var preview = function(){
+    table = '';
+    for(var i=0; i<s; i++){
+ for(var j=0; j<s; j++){   
+ table = table + (array[i][j]);
+}
+table = table + '<br>';
+};
+
+document.getElementById('opt').innerHTML = table;
+}
+
+function act(delay){
+setTimeout(() => {
+    if(array[0][0] == '□' && array[0][1] == '■' && array[1][0] == '■' && array[1][1] == '■'){after[0][0] = '■';}//４隅の例外処理
+ else{ var cnt =0;
+     for(var i=0; i<2; i++){
+    for(var j=0; j<2; j++){
+        if(array[i][j] == '□') cnt += 1; 
+    }
+ } if(cnt == 2||cnt == 3)  after[0][0] = '□';
+}
+ if(array[0][s-1] == '□' && array[0][s-2] == '■' && array[1][s-1] == '■' && array[1][s-2] == '■') {after[0][s-1] = '■';}//４隅の例外処理
+ else{ var cnt =0;
+     for(var i=0; i<2; i++){
+    for(var j=s-1; j>s-2; j--){
+        if(array[i][j] == '□') cnt += 1; 
+    }
+ } if(cnt == 2||cnt == 3)  after[0][s-1] = '□';
+}
+ if(array[s-1][0] == '□' && array[s-2][0] == '■' && array[s-2][1] == '■' && array[s-1][1] == '■') {after[s-1][0] = '■';}//４隅の例外処理
+ else{ var cnt =0;
+     for(var i=s-2; i<s; i++){
+    for(var j=0; j<2; j++){
+        if(array[i][j] == '□') cnt += 1; 
+    }
+ } if(cnt == 2||cnt == 3)  after[s-1][0] = '□';
+}
+ if(array[s-1][s-1] == '□' && array[s-2][s-1] == '■' && array[s-2][s-2] == '■' && array[s-1][s-2] == '■') {after[s-1][s-1] = '■';}//４隅の例外処理
+ else{ var cnt =0;
+     for(var i=s-2; i<s; i++){
+    for(var j=s-1; j>s-3; j--){
+        if(array[i][j] == '□'){cnt += 1;} 
+    }
+ } if(cnt == 2||cnt == 3)  after[s-1][s-1] = '□';
+}
+
+    for(var j=1; j<s-1; j++){
+
+        if(array[0][j] == '■'){
+            var count =0;
+        for(var k=0; k<2; k++){
+            for(var l=-1; l<2; l++){
+            if(array[k][j+l] == '■'){count = count+1;};
+            }
+        }
+        count = count-1;//自分の分も数えちゃってるから
+        if(count == 3 || count == 2){}
+        else{after[0][j] = '□';}
+
+       }
+       
+       if(array[0][j] == '□'){
+        var count =0;
+        
+        for(var k=0; k<2; k++){
+            for(var l=-1; l<2; l++){
+            if(array[k][j+l] == '■'){count = count+1;};
+            }
+        }
+        
+        if(count == 3) after[0][j] = '■';
+
+       }
+       
+    } //辺の例外処理　top
+
+    for(var j=1; j<s-1; j++){
+
+        if(array[s-1][j] == '■'){
+            var count =0;
+        for(var k=-1; k<1; k++){
+            for(var l=-1; l<2; l++){
+            if(array[s-1+k][j+l] == '■'){count = count+1;};
+            }
+        }
+        count = count-1;//自分の分も数えちゃってるから
+        if(count == 3 || count == 2){}
+        else{after[s-1][j] = '□';}
+
+       }
+       
+       
+
+
+       if(array[s-1][j] == '□'){
+        var count =0;
+        
+        for(var k=-1; k<1; k++){
+            for(var l=-1; l<2; l++){
+            if(array[s-1+k][j+l] == '■'){count = count+1;};
+            }
+        }
+        
+        if(count == 3) after[s-1][j] = '■';
+
+       }
+       
+    }//bottom
+
+
+    for(var j=1; j<s-1; j++){
+
+if(array[j][s-1] == '■'){
+    var count =0;
+for(var k=-1; k<1; k++){
+    for(var l=-1; l<2; l++){
+    if(array[j+l][s-1+k] == '■'){count = count+1;};
+    }
+}
+count = count-1;//自分の分も数えちゃってるから
+if(count == 3 || count == 2){}
+else{after[j][s-1] = '□';}
+
+}
+
+
+
+
+if(array[j][s-1] == '□'){
+var count =0;
+
+for(var k=-1; k<1; k++){
+    for(var l=-1; l<2; l++){
+    if(array[j+l][s-1+k] == '■'){count = count+1;};
+    }
+}
+
+if(count == 3) after[j][s-1] = '■';
+
+}
+
+}//right
+
+for(var j=1; j<s-1; j++){
+
+if(array[j][0] == '■'){
+    var count =0;
+for(var k=0; k<2; k++){
+    for(var l=-1; l<2; l++){
+    if(array[j+l][k] == '■'){count = count+1;};
+    }
+}
+count = count-1;//自分の分も数えちゃってるから
+if(count == 3 || count == 2){}
+else{after[j][0] = '□';}
+
+}
+
+if(array[j][0] == '□'){
+var count =0;
+
+for(var k=0; k<2; k++){
+    for(var l=-1; l<2; l++){
+    if(array[j+l][k] == '■'){count = count+1;};
+    }
+}
+
+if(count == 3) after[j][0] = '■';
+
+}
+
+} //left
+    
+ for(var i=1; i<s-1; i++){
+    for(var j=1; j<s-1; j++){
+
+        if(array[i][j] == '■'){
+        var count = 0;
+        for(var k=-1; k<2; k++){
+            for(var l=-1; l<2; l++){
+            if(array[i+k][j+l] == '■'){count = count+1;};
+            }
+        }
+        count = count-1;//自分の分も数えちゃってるから
+        if(count == 3 || count == 2){}
+        else{after[i][j] = '□';}
+
+       }
+       
+       
+
+
+       if(array[i][j] == '□'){
+        var count =0;
+        
+        for(var k=-1; k<2; k++){
+            for(var l=-1; l<2; l++){
+            if(array[i+k][j+l] == '■'){count = count+1;};
+            }
+        }
+        
+        if(count == 3) after[i][j] = '■';
+
+       }
+       
+    }
+ }
+   
+
+for(var i=0; i<s; i++){
+    for(var j=0; j<s; j++){
+        array[i][j] = after[i][j];
+    }
+}
+ preview();
+act(spd);
+}, delay);
+};
+act(500);
+</script>
+</html>
